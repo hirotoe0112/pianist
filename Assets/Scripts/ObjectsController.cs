@@ -157,7 +157,33 @@ public class ObjectsController : MonoBehaviour
     /// </summary>
     public void OnClickPiano()
     {
-        Debug.Log("piano");
+        //ピアノクリック詳細処理
+        StartCoroutine(OnClickPianoDetail());
+    }
+    
+    private IEnumerator OnClickPianoDetail()
+    {
+        //他のボタンを押下不可にする
+        forbiddenOperationArea.SetActive(true);
+
+        //メイン処理
+        yield return StartCoroutine(DisplayMessage(pianoMessage.GetMessages()));
+        int? result = null;
+        yield return StartCoroutine(DisplaySelection(yesnoSelection, (r => result = r)));
+
+        if (result == 1)
+        {
+            //他のボタンを押下可能にする
+            forbiddenOperationArea.SetActive(false);
+        }
+        else
+        {
+            //他のボタンを押下可能にする
+            forbiddenOperationArea.SetActive(false);
+
+            //日付送り処理
+            //★★★
+        }
     }
 
     /// <summary>
