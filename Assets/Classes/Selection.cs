@@ -81,6 +81,8 @@ public class Selection
     /// <returns></returns>
     public IEnumerator WaitSelection(List<SelectionData> selections, GameObject selectionArea, Action<int> callback)
     {
+        isSelected = false;
+
         //‘I‘ðŽˆ‚Ì•`‰æ
         DrawSelection(selections, selectionArea);
         yield return new WaitForSecondsRealtime(0.5f);

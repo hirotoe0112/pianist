@@ -24,4 +24,9 @@ public class GlobalConst
     public static int selectionFontSize = 20;
     public static Color selectingColor = new Color32(204, 153, 153, 255);
     public static Color defaultColor = new Color32(255, 255, 255, 255);
+
+    //Šú‚²‚Æ‚Ì”­•\‰ï“ú’ö
+    public static int[] recitalChild = { 28 };
+    public static int[] recitalStudent = { 7, 14, 21, 28 };
+    public static int[] recitalAdult = { 4, 8, 12, 16, 20, 24, 28 };
 }

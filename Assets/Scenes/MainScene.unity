@@ -2333,6 +2333,7 @@ GameObject:
   - component: {fileID: 817356725}
   - component: {fileID: 817356727}
   - component: {fileID: 817356726}
+  - component: {fileID: 817356728}
   m_Layer: 5
   m_Name: Selection
   m_TagString: Untagged
@@ -2397,6 +2398,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817356724}
   m_CullTransparentMesh: 1
+--- !u!114 &817356728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817356724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 930, y: 25}
+  m_Spacing: {x: 0, y: 5}
+  m_Constraint: 1
+  m_ConstraintCount: 1
 --- !u!1 &832354517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3421,9 +3446,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forbiddenOperationArea: {fileID: 434309750}
+  FMSArea: {fileID: 1672124914}
   messageArea: {fileID: 1839772568}
+  selectionArea: {fileID: 817356724}
   exitMessage: {fileID: 11400000, guid: 37b645ac035c0054193e4e5ef581401e, type: 2}
   pianoMessage: {fileID: 11400000, guid: c29fadb0238717a4cade7c456f2b10ce, type: 2}
+  recitalMessage: {fileID: 11400000, guid: 24d5f27bccc356e41876bd4404356a62, type: 2}
+  yesnoSelection: {fileID: 11400000, guid: 9de53d9b6c521c04e9ec73b8a8810fdd, type: 2}
+  exitChildSelection: {fileID: 11400000, guid: fcacfa3030239c24c84cdf4e7f7eded9, type: 2}
+  exitAdultSelection: {fileID: 11400000, guid: d50523b97adaaa04baa174e1cfb253e6, type: 2}
 --- !u!1 &1324351112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,7 +3944,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1428515538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2081996572}
+        m_TargetAssemblyTypeName: FMSController, Assembly-CSharp
+        m_MethodName: OnClickCloseButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1428515538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7579,7 +7622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: http://fms.com/score
+  m_Text: https://fms.com/score
 --- !u!222 &1880502288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8147,6 +8190,51 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!1 &2081996570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081996571}
+  - component: {fileID: 2081996572}
+  m_Layer: 0
+  m_Name: FMSController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081996571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081996570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9540518, y: -0.13490146, z: 568.08167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081996572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081996570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c0a6aa594d7ec41b78933b80d8562b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forbiddenOperationArea: {fileID: 434309750}
+  FMSArea: {fileID: 1672124914}
 --- !u!1001 &2085167033
 PrefabInstance:
   m_ObjectHideFlags: 0
