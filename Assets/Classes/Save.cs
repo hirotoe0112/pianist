@@ -32,11 +32,9 @@ public static class Save
 
         ///プラットフォームに応じてセーブ先を変更
 #if UNITY_WEBGL
-        Debug.Log("webgl");
-        PlayerPrefs.SetString("savedata", json);
+        PlayerPrefs.SetString(GlobalConst.savenameByPrefs, json);
         PlayerPrefs.Save();
-else
-        Debug.Log("else");
+#else
         File.WriteAllText(filePath, json);
 #endif
     }
@@ -46,13 +44,19 @@ else
     /// </summary>
     public static void LoadGame()
     {
-        if (!File.Exists(filePath))
+        if (!IsExistData())
         {
             return;
         }
 
+        string json;
+
+#if UNITY_WEBGL
+        json = PlayerPrefs.GetString(GlobalConst.savenameByPrefs);
+#else
         //ファイルを読み込み
-        var json = File.ReadAllText(filePath);
+        json = File.ReadAllText(filePath);
+#endif
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
         //ここでセーブデータクラスの内容をデータクラスに移送
@@ -64,7 +68,11 @@ else
     /// <returns></returns>
     public static bool IsExistData()
     {
+#if UNITY_WEBGL
+        return PlayerPrefs.HasKey(GlobalConst.savenameByPrefs);
+#else
         return File.Exists(filePath);
+#endif
     }
 #endregion
 }

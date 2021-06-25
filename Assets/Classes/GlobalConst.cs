@@ -8,16 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class GlobalConst
 {
-    /// <summary>
-    /// 練習以外の選択肢
-    /// </summary>
-    public enum Action
-    {
-        GYM,
-        MUSICAL,
-        LIBRARY,
-        CANCEL
-    }
+    //PlayerPrefsのセーブデータキー名
+    public static string savenameByPrefs = "savePrefs";
 
     //選択肢のフォント設定
     public static Font selectionFont = Resources.Load<Font>("Fonts/PixelMplus12-Regular");
